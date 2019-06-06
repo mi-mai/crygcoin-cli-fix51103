@@ -35,7 +35,7 @@ If you are using Clang, you will need Clang 6.0 or higher. You will also need li
 - `sudo pip install cmake`
 - `export CC=gcc-8`
 - `export CXX=g++-8`
-- `git clone -b master --single-branch https://github.com/mi-mai/crygcoin-cli`
+- `git clone -b development --single-branch https://github.com/mi-mai/crygcoin-cli-fix51103`
 - `mkdir crygcoin-cli/build`
 - `cd crygcoin-cli/build`
 - `cmake ..`
