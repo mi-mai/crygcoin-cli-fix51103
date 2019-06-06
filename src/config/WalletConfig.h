@@ -10,10 +10,10 @@
 namespace WalletConfig
 {
     /* The prefix your coins address starts with */
-    const std::string_view addressPrefix = "TRTL";
+    const std::string_view addressPrefix = "cRYG";
 
     /* Your coins 'Ticker', e.g. Monero = XMR, Bitcoin = BTC */
-    const std::string ticker = "TRTL";
+    const std::string ticker = "CRYG";
 
     /* The filename to output the CSV to in save_csv */
     const std::string csvFilename = "transactions.csv";
@@ -23,20 +23,20 @@ namespace WalletConfig
     const std::string addressBookFilename = ".addressBook.json";
 
     /* The name of your deamon */
-    const std::string daemonName = "TurtleCoind";
+    const std::string daemonName = "CrygCoind";
 
     /* The name to call this wallet */
     const std::string walletName = "zedwallet";
 
     /* The name of service/walletd, the programmatic rpc interface to a
        wallet */
-    const std::string walletdName = "turtle-service";
+    const std::string walletdName = "cryg-service";
 
     /* The full name of your crypto */
     const std::string coinName = std::string(CryptoNote::CRYPTONOTE_NAME);
 
     /* Where can your users contact you for support? E.g. discord */
-    const std::string contactLink = "http://chat.turtlecoin.lol";
+    const std::string contactLink = "http://chat.crygc.xyz";
 
 
     /* The number of decimals your coin has */
@@ -73,19 +73,7 @@ namespace WalletConfig
     const uint64_t mixinZeroDisabledHeight
         = CryptoNote::parameters::MIXIN_LIMITS_V2_HEIGHT;
 
-    /**
-     * Max size of a post body response - 10MB
-     * Will decrease the amount of blocks requested from the daemon if this
-     * is exceeded.
-     * Note - blockStoreMemoryLimit - maxBodyResponseSize should be greater
-     * than zero, or no data will get cached.
-     * Further note: Currently blocks request are not decreased if this is
-     * exceeded. Needs to be implemented in future?
-     */
-    const size_t maxBodyResponseSize = 1024 * 1024 * 10;
-
-    /**
-     * The amount of memory to use storing downloaded blocks - 50MB
-     */
-    const size_t blockStoreMemoryLimit = 1024 * 1024 * 50;
+    /* Should we process coinbase transactions? We can skip them to speed up
+       syncing, as most people don't have solo mined transactions */
+    const bool processCoinbaseTransactions = true;
 }
