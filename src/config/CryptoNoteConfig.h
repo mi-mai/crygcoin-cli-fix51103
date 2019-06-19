@@ -118,8 +118,7 @@ const uint64_t EXPECTED_NUMBER_OF_BLOCKS_PER_DAY             = 24 * 60 * 60 / DI
 const size_t   DIFFICULTY_WINDOW                             = 17;
 const size_t   DIFFICULTY_WINDOW_V1                          = 2880;
 const size_t   DIFFICULTY_WINDOW_V2                          = 2880;
-//const uint64_t DIFFICULTY_WINDOW_V3                          = 60;
-const uint64_t DIFFICULTY_WINDOW_V3                          = 51103;
+const uint64_t DIFFICULTY_WINDOW_V3                          = 60;
 const uint64_t DIFFICULTY_BLOCKS_COUNT_V3                    = DIFFICULTY_WINDOW_V3 + 1;
 
 const size_t   DIFFICULTY_CUT                                = 0;  // timestamps to cut after sorting
@@ -263,7 +262,8 @@ const char* const SEED_NODES[] = {
   "nd2.cryg.xyz:18897",//nd2
   "nd3.cryg.xyz:18897",//nd3
   "nd4.cryg.xyz:18897",//nd4
-  "185.251.38.191:18897",//nd5
+  "nd5.cryg.xyz:18897",//nd5
+  "185.251.38.191:18897",//nd6
   "192.168.0.70:18897",//Test_nd1
   "192.168.0.71:18897",//Test_nd2
   "192.168.0.72:18897",//Test_nd3
