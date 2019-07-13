@@ -17,7 +17,7 @@
 namespace CryptoNote {
 namespace parameters {
 
-const uint64_t DIFFICULTY_TARGET                             = 30; // seconds
+const uint64_t DIFFICULTY_TARGET                             = 120; // seconds
 
 const uint32_t CRYPTONOTE_MAX_BLOCK_NUMBER                   = 500000000;
 const size_t   CRYPTONOTE_MAX_BLOCK_BLOB_SIZE                = 500000000;
@@ -254,7 +254,7 @@ const char     LATEST_VERSION_URL[]                          = "http://cryg.xyz"
 const std::string LICENSE_URL                                = "https://github.com/mi-mai/crygcoin-cli/blob/master/LICENSE";
 const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
 {
-    {  0xb5, 0x0c, 0x4a, 0x6c, 0xcf, 0x52, 0x57, 0x41, 0x65, 0xf9, 0x91, 0xa4, 0xb6, 0xc1, 0x43, 0xe9  }
+    {  0xb5, 0x0c, 0x4a, 0x6c, 0xcf, 0x52, 0x57, 0x41, 0x65, 0xf9, 0x91, 0xa4, 0xb6, 0xc1, 0x43, 0x52  }
 };
 
 const char* const SEED_NODES[] = {
@@ -263,10 +263,5 @@ const char* const SEED_NODES[] = {
   "nd3.cryg.xyz:18897",//nd3
   "nd4.cryg.xyz:18897",//nd4
   "nd5.cryg.xyz:18897",//nd5
-  "185.251.38.191:18897",//nd6
-  "192.168.0.70:18897",//Test_nd1
-  "192.168.0.71:18897",//Test_nd2
-  "192.168.0.72:18897",//Test_nd3
-
   };
 } // CryptoNote
