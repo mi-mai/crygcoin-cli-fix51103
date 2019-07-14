@@ -265,22 +265,37 @@ bool CryptoNoteProtocolHandler::process_payload_sync_data(const CORE_SYNC_DATA& 
 
 
 	std::stringstream ss;
+	auto logLevel = Logging::TRACE;
+	
+	
+	//logger(Logging::DEBUGGING, Logging::BRIGHT_RED) << context << "~-----------------------~";
+	//logger(Logging::DEBUGGING, Logging::BRIGHT_RED) << context << remoteHeight;
+	//logger(Logging::DEBUGGING, Logging::BRIGHT_RED) << context << "~-----------------------~";
 
 	/* Fix error with old blockchain on block 51103*/
 	if ((remoteHeight == 51102) || (remoteHeight == 51103) || (currentHeight == 51102) || (currentHeight == 51103))
 	{
 		ss << "ERROR!!!! Network is dead";
-		logger(Logging::DEBUGGING) << context << "Network is dead";
+		logger(Logging::INFO, Logging::BRIGHT_RED) << context << ss.str();
+		//logger(Logging::INFO, Logging::BRIGHT_RED) << context << "Network is dead";
+		//logger(logLevel, Logging::BRIGHT_GREEN) << context << ss.str();
 		context.m_state = CryptoNoteConnectionContext::state_shutdown;
-		return 1;
+		return false;
 	}
 	   
 	if ((currentHeight > 48998) && (currentHeight < 51105))
 	{
-		ss << "ERROR!!!! Please remote old blockchain and resync";
-		logger(Logging::DEBUGGING) << context << "Error blockchain (48998-51105)";
+		//ss << "ERROR!!!! Please delete old blockchain and resync";		
+	//	logger(Logging::INFO, Logging::BRIGHT_RED) << context << ss.str();
+		//logger(Logging::INFO, Logging::BRIGHT_RED) << ss.str();
+		//logger(Logging::INFO, Logging::BRIGHT_RED) << ss.str();
+		logger(Logging::INFO, Logging::BRIGHT_RED) << "ERROR!!!! Please delete old blockchain and resync";
+		//ss << "Error blockchain (48998-51105)";
+		logger(Logging::INFO, Logging::BRIGHT_RED) << "Error blockchain (48998-51105)";
+	//	logger(Logging::INFO, Logging::BRIGHT_RED) << context << "Error blockchain (48998-51105)";
 		context.m_state = CryptoNoteConnectionContext::state_shutdown;
-		return 1;
+		return false;
+		//return 1;
 	}
 
 
@@ -310,7 +325,7 @@ bool CryptoNoteProtocolHandler::process_payload_sync_data(const CORE_SYNC_DATA& 
 
     ss << "the current peer you're connected to. Slow and steady wins the race! ";
 
-    auto logLevel = Logging::TRACE;
+    
     /* Log at different levels depending upon if we're ahead, behind, and if it's
       a newly formed connection */
     if (diff >= 0)
