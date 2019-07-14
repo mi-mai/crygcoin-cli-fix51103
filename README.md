@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/crygcoin/crygcoin.svg?branch=master)](https://travis-ci.org/crygcoin/crygcoin) [![Build status](https://ci.appveyor.com/api/projects/status/github/crygcoin/turtlecoin?branch=master&svg=true)](https://ci.appveyor.com/project/mi-mai/crygcoin)
 
 #### Development Build Status
-[![Build Status](https://travis-ci.org/crygcoin/crygcoin.svg?branch=development)](https://travis-ci.org/turtlecoin/turtlecoin) [![Build status](https://travis-ci.com/mi-mai/crygcoin-cli-fix51103.svg?branch=development)](https://ci.appveyor.com/project/mi-mai/crygcoin)
+[![Build Status](https://travis-ci.org/crygcoin/crygcoin.svg?branch=development)](https://travis-ci.org/turtlecoin/turtlecoin) [![Build status](https://travis-ci.com/mi-mai/crygcoin-cli-fix51103.svg?branch=development)](https://travis-ci.com/mi-mai/crygcoin-cli-fix51103.svg?branch=development)
 
 ### Installing
 
