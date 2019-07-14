@@ -263,13 +263,34 @@ bool CryptoNoteProtocolHandler::process_payload_sync_data(const CORE_SYNC_DATA& 
 
     uint64_t remoteHeight = hshd.current_height;
 
+
+	std::stringstream ss;
+
+	/* Fix error with old blockchain on block 51103*/
+	if ((remoteHeight == 51102) || (remoteHeight == 51103) || (currentHeight == 51102) || (currentHeight == 51103))
+	{
+		ss << "ERROR!!!! Network is dead";
+		logger(Logging::DEBUGGING) << context << "Network is dead";
+		context.m_state = CryptoNoteConnectionContext::state_shutdown;
+		return 1;
+	}
+	   
+	if ((currentHeight > 48998) && (currentHeight < 51105))
+	{
+		ss << "ERROR!!!! Please remote old blockchain and resync";
+		logger(Logging::DEBUGGING) << context << "Error blockchain (48998-51105)";
+		context.m_state = CryptoNoteConnectionContext::state_shutdown;
+		return 1;
+	}
+
+
     /* Find the difference between the remote and the local height */
     int64_t diff = static_cast<int64_t>(remoteHeight) - static_cast<int64_t>(currentHeight);
 
     /* Find out how many days behind/ahead we are from the remote height */
     uint64_t days = std::abs(diff) / (24 * 60 * 60 / m_currency.difficultyTarget());
 
-    std::stringstream ss;
+    
 
     ss << "Your " << CRYPTONOTE_NAME << " node is syncing with the network ";
 
